@@ -1,0 +1,92 @@
+<div class="grid-container">
+  <!-- Header  -->
+  <header class="header">
+    <div class="menu-icon" (click)="openSidebar()">
+      <span class="material-icons-outlined">menu</span>
+    </div>
+    <div class="header-left">
+      <span class="material-icons-outlined">search</span>
+    </div>
+    <div class="header-right">
+      <span
+        class="material-icons-outlined"
+        (click)="openFullscreen()"
+        *ngIf="fullScreen"
+      >
+        fullscreen
+      </span>
+      <span
+        class="material-icons-outlined"
+        (click)="closeFullscreen()"
+        *ngIf="!fullScreen"
+      >
+        close_fullscreen
+      </span>
+
+      <span class="material-icons-outlined"> notifications </span>
+      <span class="material-icons-outlined"> email </span>
+      <span class="material-icons-outlined"> account_circle </span>
+    </div>
+  </header>
+  <!-- End Header -->
+
+  <!-- Sidebar -->
+  <aside id="sidebar">
+    <div class="sidebar-title">
+      <div class="sidebar-brand">
+        <span class="material-icons-outlined"> person </span> ADMIN
+      </div>
+      <span class="material-icons-outlined" (click)="closeSidebar()">
+        close
+      </span>
+    </div>
+
+    <ul class="sidebar-list">
+      <li class="sidebar-list-item" *ngFor="let item of itemList">
+        <span class="material-icons-outlined"> {{ item.iconName }} </span>
+        {{ item.listName }}
+      </li>
+    </ul>
+  </aside>
+  <!-- Sidebar End -->
+
+  <!-- Main  -->
+  <main class="main-container">
+    <div class="main-title">
+      <h2>DASHBOARD</h2>
+    </div>
+
+    <div class="main-cards">
+      <div class="card" *ngFor="let item of dashboard">
+        <div class="card-inner">
+          <h3>{{ item.itemName }}</h3>
+          <span class="material-icons-outlined">{{ item.itemIcon }} </span>
+        </div>
+        <h1>{{ item.itemTotal }}</h1>
+      </div>
+    </div>
+
+    <div class="charts">
+      <div class="charts-card">
+        <h2 class="chart-title">Top 5 Products</h2>
+        <div id="bar-chart">
+          <img
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMwAAADACAMAAAB/Pny7AAABAlBMVEX////gDRwAlUL/ug3/dRxCas+6SZsAkTjgBxnd3d3eAAD/twD2wsf/uQDhEyLs7Ozx9/n/+PSJxJ3/xUH/4qP/dA5Zs3v89/v/bgC1N5T/7N8zYc26RZvP2vP45/FKcdG9vb3R0dHb4vTG5NHw3Or/7Mb/kFHsdjDlRU/RKDDssCgjkUxMbMKwUZa0tLSampqmpqZqamp1dXVbW1uCgoIeHh4uLi47OztISEj/9uLX69/qcXfvk5j/pnX/uZT/03b/zFr/gC3jvN0cVcqaruTVlsN1vpCDm94QEBD51tj/14bjJjP3p67/zKr/2cCh17i1x/DDY6jMfrbkNkLs05xeqnt7n366AAAD50lEQVR4nO2de1saORSHIwoY0J5gawHxkmi7bbdtkoHBW+8X2912b+1uv/9X2WSgyj5LYn1kYMDf+8+YOTN43jlnQh6ZBxkDAAAAAAAA3CyI08hIcLdnZrlcF9Hv9rrnI3WY9ClR5+PefImJI1I96iVW/tJj7Fi5unR7fSmTY0qOkn6S9+//9dlzv3EN8d+OEIPN1ouXjWFYjIZpcPDJq0+jYXHY7aVMd1Pp8z70uxOlDeljlUh2lHdlGrVa7RljlispDZekuXQ/uVRt1h6NzVbrBWOa3F4flm6rNHFmpM+ssVyvv/Zh5cNehnjfJDqVvtnSlFLyMolOlGu3QxXLZAKs1ZZWP7t0GEmjjTLCpazJMGGMD2+1Vlbe+LBwYSstacndMcSM9pf9pL68vjwMS+t2dJNEUmqM8gNmEsMMV1ql7pU5s2nOMs2lWs31mb/e2l11rt21V8wyJVTWFG9arZeujXxYubC0Lu7CzMrs9Nv1+qtB2Kq8r/sP0PxtbWREWffQRXM3fv9j9Gjp65HdIkPu3M81uysi/jyIhv/aiYWbb99ONp3rUapWN1zXu+bihhSTpLhSgsjqrDx7nXfvXUGk5K7rpVCcK5KCWDpoqi/t9lkWVsrM/l3koFoqlfwtzPwEIA1ZJS23ghT5dPc75fLe97B1M5azdsfwocxuu1KpDMPZBDBbRLVa/ZBdW239za/dPCCZYa4y2RtHudP56OcHF/blcROA9mFmlA83K9vtr1nYGnfazDn9sDEyoqy56OIO3//4fiQsdFaQi3lr9+ysmXOCAAAAAADTg/PLj5kfIFNUIFNUxsk8DPP32pjjC8M4mdUwtbmTubW6FAIyU2ORZPi4v9DOq8xCVQYyhQUyRQUyRQUyBQUrgMICmaICmaICmaICmYJCE14BnNyPwE4PwpxOwGbClblTD3Ob3a2G2Yi/8GxklkOse5lSCMhABjKQgcxCyohFkpn0cgZtBhnIQAYykIHMPMhM+iMNVAYykFloma2fIjTmTaa1GaQ1fzIrQTYhA5mxLldeARRYZqEqAxnIQAYykIFMnjJYAUAGMpCBDGQgcxNlrv4cQH4y+xFE816EYd5Xf0IjP5lyJ8i7nd12hO/fpFUgmb1ykM5O9r1sAbYhAxnIQAYykJmCTJGWM6gMZCADGchABjLTkinSRxqoDGQgAxnIQAYy05LBCgAykIEMZCADmZsogxUAZCADGchABjLXkVmK/WOQy2TWg1xTZjvM+XMA9H8ehbm1tvUgAv3zc5jX4tvjMBv0JMLOvcrTMIO0GYkxMiJGNHrJqc0Y1IgQT2ooAwAAAAAAAAAAgBvBv94stPzIJyEfAAAAAElFTkSuQmCC"
+            alt=""
+          />
+        </div>
+      </div>
+
+      <div class="charts-card">
+        <h2 class="chart-title">Purchase and Sales Orders</h2>
+        <div id="area-chart">
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuepBIRdr_fwPlEs8vGivGwZIrfl2TxDsE7TwkaMGxkQ&s"
+            alt=""
+          />
+        </div>
+      </div>
+    </div>
+  </main>
+  <!-- End Main -->
+</div>

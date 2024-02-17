@@ -1,0 +1,161 @@
+.main-section {
+  background-color: #19212e;
+  padding: 20px;
+}
+
+.box-section {
+  margin: 7px 70px;
+  background-color: #fff;
+  border-radius: 10px;
+  border-bottom-left-radius: 50px;
+}
+
+.left-side {
+  height: 476px;
+  background-color: #263043;
+  border-radius: 10px;
+  border-bottom-left-radius: 50px;
+  margin: 10px 10px;
+  border-top-right-radius: 50px;
+  text-align: center;
+}
+
+.left-side img {
+  width: 400px;
+  height: 450px;
+}
+
+.right-side {
+  padding: 30px 30px;
+  width: 100%;
+  overflow: hidden;
+  margin: auto;
+  // overflow-y: auto;
+  max-height: 476px;
+  // scrollbar-width: thin;
+  // scrollbar-color: #d2d8e0;
+  // &::-webkit-scrollbar {
+  //   width: 4px;
+  // }
+
+  // &::-webkit-scrollbar-thumb {
+  //   background-color: #d2d8e0;
+  // }
+
+  // &::-webkit-scrollbar-track {
+  //   background-color: #d2d8e0;
+  // }
+}
+
+.login-section {
+  margin: 20px 0 0 0;
+}
+
+.welcome {
+  display: flex;
+  align-items: center;
+}
+
+.welcome img {
+  width: 40px;
+}
+
+.welcome .hey{
+  font-size: 60px;
+}
+
+.welcome strong {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 28px;
+}
+
+.form-control {
+  height: 50px;
+  border-radius: 8px;
+}
+
+.password-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.show span {
+  padding-left: 10px;
+}
+
+.login-btn {
+  margin-top: 10px 0 0 0 !important;
+  border-radius: 50px;
+  border: none !important;
+  background-color: #ffc107;
+  opacity: 0.7;
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  line-height: 23px;
+}
+
+.forget-password a{
+  text-decoration: none;
+}
+
+.login-btn:hover {
+  opacity: 1;
+  width: 100%;
+  border: none !important;
+  box-shadow: 0px 0px 2px 2px gainsboro;
+}
+
+/***** Media Query*******/
+
+/* Large Size  > 1100px */
+
+@media screen and (min-width: 992px) and (max-width: 1100px) {
+  .box-section {
+    margin: 10px 30px 20px 30px !important;
+  }
+}
+
+/* Medium < 992px */
+
+@media screen and (max-width: 992px) and (min-width: 768px) {
+  .box-section {
+    margin: 10px !important;
+  }
+}
+
+/* Small Size < 768px */
+
+@media screen and (max-width: 768px) {
+  .box-section {
+    margin: 0px !important;
+  }
+
+  .main-section {
+    background-color: #fff;
+    padding: 0px;
+  }
+  .col-sm-6 {
+    flex: 0 0 auto;
+    width: 100%;
+  }
+
+  .right-side {
+    padding: 20px 30px;
+    width: 100%;
+    overflow: hidden;
+    margin: auto;
+    max-height: 100%;
+  }
+
+  .col-md-6.col-lg-6.col-lx-6.col-sm-6.left {
+    display: none;
+  }
+}
+
+/* Extra Size Small < 576px */
+
+/* @media screen and (max-width: 576px) {
+} */

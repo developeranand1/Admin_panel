@@ -1,0 +1,67 @@
+<section>
+  <main class="main-section">
+    <div class="container">
+      <div class="box-section">
+        <div class="row">
+          <div class="col-md-6 col-lg-6 col-lx-6 col-sm-6 left">
+            <div class="left-side">
+              <img [src]="imageLeftSide" alt="" />
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-6 col-lx-6 col-sm-6">
+            <div class="right-side">
+              <div class="form-section">
+                <span>Hii</span>
+                <div class="welcome">
+                  <span class="hey">👋</span>
+                  <strong> Welcome Back!</strong>
+                </div>
+
+                <form class="login-section" [formGroup]="adminLogin">
+                  <div class="mb-2">
+                    <label class="form-label">Email id</label>
+                    <input
+                      type="email"
+                      class="form-control"
+                      placeholder="Enter Email id "
+                      formControlName="email"
+                    />
+                  </div>
+                  <div class="mb-2">
+                    <label class="form-label">Password</label>
+                    <input
+                      type="password"
+                      class="form-control"
+                      placeholder="Enter Password"
+                      id="password"
+                      formControlName="password"
+                    />
+                  </div>
+                  <div class="password-section">
+                    <div class="show">
+                      <input
+                        type="checkbox"
+                        id="showPassword"
+                        (click)="togglePasswordVisibility()"
+                      />
+                      <span>Show Password</span>
+                    </div>
+                    <div class="forget-password">
+                      <a href="">Forgot Password</a>
+                    </div>
+                  </div>
+                  <div class="mt-4 mb-4">
+                    <button class="login-btn" type="submit" (click)=" onLogin()">
+                      Login
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</section>
